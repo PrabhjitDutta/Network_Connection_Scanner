@@ -36,7 +36,8 @@ def ipScanner():
 	result = str(subprocess.check_output(['arp', '-a']))
 	result = result.split()
 
-	regex = re.compile("192.*")
+	regex = re.compile(r"(19[2-9]\.[\.0-9]*)|(2[0-2][0-3]\.[\.0-9]*)")
+
 	result = list(filter(regex.search, result))
 	return result
 
